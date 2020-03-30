@@ -1,5 +1,5 @@
 {
-    "name" : "Geodis",
+    "name" : "GeodisBundle",
     "description" : "A Bundle for Geodis Labels",
     "type" : "symfony-bundle",
     "authors" : [{
@@ -24,10 +24,10 @@
     },
     "autoload" : {
         "psr-0" : {
-            "Geodis" : ""
+            "GeodisBundle" : ""
         }
     },
-    "target-dir" : "Geodis",
+    "target-dir" : "GeodisBundle",
     "repositories" : [{
     }],
     "extra" : {
