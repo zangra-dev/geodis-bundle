@@ -1,5 +1,5 @@
 <?php
-namespace Geodis\Doctrine\ORM;
+namespace GeodisBundle\Doctrine\ORM;
 
 use Doctrine\ORM\EntityRepository;
 

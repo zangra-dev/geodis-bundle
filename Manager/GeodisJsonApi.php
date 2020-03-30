@@ -1,10 +1,10 @@
 <?php
 
-namespace Geodis\Manager;
+namespace GeodisBundle\Manager;
 
 use Doctrine\ORM\EntityManager;
-use Geodis\DAO\Connection;
-use Geodis\DAO\Exception\ApiException;
+use GeodisBundle\DAO\Connection;
+use GeodisBundle\DAO\Exception\ApiException;
 
 /**
  * Author: Jefferson Bianchi <Jefferson@aibianchi.com>

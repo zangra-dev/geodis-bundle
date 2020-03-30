@@ -1,6 +1,6 @@
 <?php
 
-namespace Geodis\DAO\Exception;
+namespace GeodisBundle\DAO\Exception;
 
 /**
  * interface ApiExceptionInterface

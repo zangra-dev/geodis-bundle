@@ -1,8 +1,8 @@
 <?php
 
-namespace Geodis\Model;
+namespace GeodisBundle\Model;
 
-use Geodis\Model\Base\Model;
+use GeodisBundle\Model\Base\Model;
 
 
 /**

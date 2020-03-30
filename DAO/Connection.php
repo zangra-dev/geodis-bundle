@@ -1,9 +1,9 @@
 <?php
 
-namespace Geodis\DAO;
+namespace GeodisBundle\DAO;
 
 use Doctrine\ORM\EntityManager;
-use Geodis\DAO\Exception\ApiException;
+use GeodisBundle\DAO\Exception\ApiException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;

@@ -1,9 +1,9 @@
 <?php
 
-namespace Geodis;
+namespace GeodisBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class Geodis extends Bundle
+class GeodisBundle extends Bundle
 {
 }

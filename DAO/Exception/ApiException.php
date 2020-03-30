@@ -1,8 +1,8 @@
 <?php
 
-namespace Geodis\DAO\Exception;
+namespace GeodisBundle\DAO\Exception;
 
-use aibianchi\ExactOnlineBundle\DAO\Exception\ApiExceptionInterface;
+use GeodisBundle\DAO\Exception\ApiExceptionInterface;
 use Exception;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 

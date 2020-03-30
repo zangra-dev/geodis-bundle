@@ -1,6 +1,6 @@
 <?php
 
-namespace Geodis\Entity;
+namespace GeodisBundle\Entity;
 
 class GeodisLogger
 {

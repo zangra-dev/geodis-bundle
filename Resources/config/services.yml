@@ -1,10 +1,10 @@
 services:
     geodis.rest_api:
-        class: Geodis\Manager\GeodisJsonApi
+        class: GeodisBundle\Manager\GeodisJsonApi
         arguments: ['@doctrine.orm.entity_manager']
 
     geodis.exceptionlistener:
-        class: aibianchi\ExactOnlineBundle\Event\ExceptionListener
+        class: GeodisBundle\Event\ExceptionListener
         arguments: ['@doctrine.orm.entity_manager']
         tags:
             - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }

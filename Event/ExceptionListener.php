@@ -1,11 +1,11 @@
 <?php
 
-namespace Geodis\Event;
+namespace GeodisBundle\Event;
 
 use Doctrine\ORM\EntityManager;
 use Exception;
-use Geodis\DAO\Exception\ApiExceptionInterface;
-use Geodis\Entity\GeodisLogger;
+use GeodisBundle\DAO\Exception\ApiExceptionInterface;
+use GeodisBundle\Entity\GeodisLogger;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;

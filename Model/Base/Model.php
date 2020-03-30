@@ -1,6 +1,6 @@
 <?php
 
-namespace Geodis\Model\Base;
+namespace GeodisBundle\Model\Base;
 
 /**
  * Author: Nils méchin <nils@zangra.com>

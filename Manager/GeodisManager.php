@@ -1,11 +1,11 @@
 <?php
 
-namespace Geodis\Manager;
+namespace GeodisBundle\Manager;
 
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\HttpFoundation\Request;
-use Geodis\DAO\Connection;
-use Geodis\DAO\Exception\ApiException;
+use GeodisBundle\DAO\Connection;
+use GeodisBundle\DAO\Exception\ApiException;
 
 
 abstract class ExactManager
@@ -41,7 +41,7 @@ abstract class ExactManager
     public function getModel($name)
     {
         try {
-            $classname = $cname = 'Geodis\\Model\\'.$name;
+            $classname = $cname = 'GeodisBundle\\Model\\'.$name;
 
             $this->model = new $classname();
 
