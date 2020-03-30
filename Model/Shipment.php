@@ -138,7 +138,6 @@ class Shipment extends Model
     protected $impressionRecapitulatif;
     protected $noRecepisse;
     protected $noSuivi;
-    protected $Expédition;
     protected $horsSite;
     protected $codeSa;
     protected $codeClient;
@@ -227,7 +226,6 @@ class Shipment extends Model
     protected $nomTechnique0;
     protected $codeQuantite0;
     protected $dangerEnv0;
-    protected $Spiritueux;
     protected $regimeFiscal0;
     protected $nbCols0;
     protected $contenance0;
@@ -394,26 +392,6 @@ class Shipment extends Model
     public function setNoSuivi($noSuivi)
     {
         $this->noSuivi = $noSuivi;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getExpédition()
-    {
-        return $this->Expédition;
-    }
-
-    /**
-     * @param mixed $Expédition
-     *
-     * @return self
-     */
-    public function setExpédition($Expédition)
-    {
-        $this->Expédition = $Expédition;
 
         return $this;
     }
@@ -2174,26 +2152,6 @@ class Shipment extends Model
     public function setDangerEnv0($dangerEnv0)
     {
         $this->dangerEnv0 = $dangerEnv0;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSpiritueux()
-    {
-        return $this->Spiritueux;
-    }
-
-    /**
-     * @param mixed $Spiritueux
-     *
-     * @return self
-     */
-    public function setSpiritueux($Spiritueux)
-    {
-        $this->Spiritueux = $Spiritueux;
 
         return $this;
     }
