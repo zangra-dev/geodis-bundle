@@ -1,5 +1,5 @@
 {
-    "name" : "GeodisBundle",
+    "name" : "geodis/geodis-bundle",
     "description" : "A Bundle for Geodis Labels",
     "type" : "symfony-bundle",
     "authors" : [{
