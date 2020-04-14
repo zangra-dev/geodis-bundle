@@ -8,7 +8,7 @@ use GeodisBundle\DAO\Connection;
 use GeodisBundle\DAO\Exception\ApiException;
 
 
-abstract class ExactManager
+abstract class GeodisManager
 {
     protected $list = [];
     protected $model;
