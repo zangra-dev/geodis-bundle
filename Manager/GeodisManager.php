@@ -25,7 +25,7 @@ abstract class GeodisManager
         $this->config = $config;
     }
 
-    public function init($code)
+    public function init()
     {
         try {
             Connection::setConfig($this->config, $this->em);
