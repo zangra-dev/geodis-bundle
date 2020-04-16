@@ -17,8 +17,8 @@ class Connection
     private static $serviceRecordSend;
     private static $serviceValidationSend;
 
-    private static $geodisClientId;
-    private static $geodisClientSecret;
+    private static $clientId;
+    private static $clientSecret;
 
     private static $em;
     private static $contentType = self::CONTENT_TYPE_JSON;
@@ -30,8 +30,8 @@ class Connection
         self::$serviceRecordSend = $config['serviceRecordSend'];
         self::$serviceValidationSend = $config['serviceValidationSend'];
 
-        self::$geodisClientId = $config['clientId'];
-        self::$geodisClientSecret = $config['clientSecret'];
+        self::$clientId = $config['clientId'];
+        self::$clientSecret = $config['clientSecret'];
     }
 
 

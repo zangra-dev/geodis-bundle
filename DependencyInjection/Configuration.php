@@ -25,8 +25,8 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('baseUrl')->defaultValue('')->end()
                 ->scalarNode('serviceRecordSend')->defaultValue('')->end()
                 ->scalarNode('serviceValidationSend')->defaultValue('')->end()
-                ->scalarNode('geodisClientId')->defaultValue('')->end()
-                ->scalarNode('geodisClientSecret')->defaultValue('')->end()
+                ->scalarNode('clientId')->defaultValue('')->end()
+                ->scalarNode('clientSecret')->defaultValue('')->end()
             ->end()
             ;
 
