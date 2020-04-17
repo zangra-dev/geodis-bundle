@@ -65,18 +65,16 @@ class Connection
             ZANGRA;1584105904250;fr;64c34a8d118f81f9c72682779cac98501d860cc1e2eb76456887b105aaa5b3cd
         */
         $now = new \DateTime('now');
-        $now = $now->getTimestamp();
+        $now = $now->getTimestamp()*1000;
 
-        $hash = self::$clientSecret.';'.self::$clientId.';'.$now.';fr;'.$endpoint.';'.$body;
+        $hash = self::$clientSecret.';'.self::$clientId.';'.$now.';fr;api/wsclient/enregistrement-envois;'.$body;
+
         $hash = hash('sha256', $hash);
 
-        dump(__METHOD__, $headers);
-        $header = array('Header' => self::$clientId.';'.$now.';fr;'.$hash);
-        $service = array('Service' => 'api/wsclient/enregistrement-envois');
+        $header = array('X-GEODIS-Service' => self::$clientId.';'.$now.';fr;'.$hash);
 
-        $headers = array_merge($header, $service);
-        dump($method, $endpoint, $headers, $body);
-        $request = new Request($method, $endpoint, $headers, $body);
+        dump($method, $endpoint, $header, $body);
+        $request = new Request($method, $endpoint, $header, $body);
         dump(__METHOD__, $request );
         return  $request;
     }
