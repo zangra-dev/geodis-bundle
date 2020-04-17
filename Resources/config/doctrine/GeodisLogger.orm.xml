@@ -5,7 +5,7 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                                       http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-      <entity name="GeodisBundle\Entity\GeodisLoggier" table="export_geodis_log" repository-class="GeodisBundle\ORM\GeodisRepository" >
+      <entity name="GeodisBundle\Entity\GeodisLogger" table="export_geodis_log" repository-class="GeodisBundle\ORM\GeodisRepository" >
 
 
       <id name="id" type="integer" column="id">

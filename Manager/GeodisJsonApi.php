@@ -27,7 +27,7 @@ class GeodisJsonApi extends GeodisManager
     {
         Connection::setContentType('json');
 
-        return Connection::Request($url, $method, $body);
+        return Connection::Request($method, $service, $body);
     }
 
     public function persist($entity, $service)
