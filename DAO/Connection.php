@@ -67,7 +67,7 @@ class Connection
         $now = new \DateTime('now');
         $now = $now->getTimestamp();
 
-        $hash = self::$geodisClientSecret.';'.self::$geodisClientId.';'.$now.';fr;'.$endpoint.';'.$body;
+        $hash = self::$clientSecret.';'.self::$clientId.';'.$now.';fr;'.$endpoint.';'.$body;
         $hash = hash('sha256', $hash);
 
         $headers = array_merge($headers, [
