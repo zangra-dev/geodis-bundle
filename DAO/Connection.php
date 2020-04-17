@@ -72,9 +72,12 @@ class Connection
 
         dump(__METHOD__, $headers);
         $header = array('Header' => self::$clientId.';'.$now.';fr;'.$hash);
+        $service = array('Service' => 'api/wsclient/enregistrement-envois');
 
+        $headers = array_merge($header, $service);
+        dump($method, $endpoint, $headers, $body);
         $request = new Request($method, $endpoint, $headers, $body);
-
+        dump(__METHOD__, $request );
         return  $request;
     }
 
@@ -89,18 +92,26 @@ class Connection
      */
     public static function Request($method, $service, $body = null)
     {
+        //$url = self::$baseUrl;
         if ($service == "enregistrement") {
             $url = self::$baseUrl.'/'.self::$serviceRecordSend;
         } else {
             $url = self::$baseUrl.'/'.self::$serviceValidationSend;
         }
 
+        dump('url', $url);
+
         try {
             $client = new Client();
             $request = self::createRequest($method, $url, $body);
             $response = $client->send($request);
+
+            dump('response', $response);
+
         } catch (\Exception $ex) {
             $error = $ex->getResponse()->getBody()->getContents();
+
+            dump('error', $error, $ex);
 
             throw new ApiException($error, $ex->getResponse()->getStatusCode());
         }
@@ -108,8 +119,11 @@ class Connection
         try {
             $parsedResponse = self::parseResponse($response, $request->getMethod());
 
+            dump('persed response', $parsedResponse);
             return $parsedResponse;
         } catch (\Exception $ex) {
+
+            dump('parsederror', $ex);
             throw new ApiException($e->getMessage(), $e->getStatusCode());
         }
     }
@@ -120,13 +134,12 @@ class Connection
             throw new ApiException($response->getReasonPhrase(), $response->getStatusCode());
         }
 
-        if (self::CONTENT_TYPE_XML === self::$contentType) {
-            return $response->getBody()->getContents();
-        }
-
         if (self::CONTENT_TYPE_JSON === self::$contentType) {
+            dump(__METHOD__, $response);
             return self::parseJSON($response, $returnSingleIfPossible);
         }
+
+        throw new ApiException($response->getReasonPhrase(), $response->getStatusCode());
     }
 
     /**
