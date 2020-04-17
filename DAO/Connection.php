@@ -70,9 +70,8 @@ class Connection
         $hash = self::$clientSecret.';'.self::$clientId.';'.$now.';fr;'.$endpoint.';'.$body;
         $hash = hash('sha256', $hash);
 
-        $headers = array_merge($headers, [
-            'X-GEODIS-Service' => self::$geodisClientId.';'.$now.';fr;'.$hash
-        ]);
+        dump(__METHOD__, $headers);
+        $header = array('Header' => self::$clientId.';'.$now.';fr;'.$hash);
 
         $request = new Request($method, $endpoint, $headers, $body);
 
