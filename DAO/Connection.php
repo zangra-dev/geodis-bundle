@@ -41,7 +41,7 @@ class Connection
      *
      * @return GuzzleHttp\Psr7\Request;
      */
-    private static function createRequest($method = 'GET', $endpoint, $body)
+    private static function createRequest($method = 'GET', $endpoint, $body, $serviceCalled)
     {
         /*
             X-GEODIS-Service:
@@ -67,15 +67,19 @@ class Connection
         $now = new \DateTime('now');
         $now = $now->getTimestamp()*1000;
 
-        $hash = self::$clientSecret.';'.self::$clientId.';'.$now.';fr;api/wsclient/enregistrement-envois;'.$body;
+        if ($serviceCalled == "enregistrement") {
+            $serviceCalled = self::$serviceRecordSend;
+        } else {
+            $serviceCalled = self::$serviceValidationSend;
+        }
+
+        $hash = self::$clientSecret.';'.self::$clientId.';'.$now.';fr;'.$serviceCalled.';'.$body;
 
         $hash = hash('sha256', $hash);
 
         $header = array('X-GEODIS-Service' => self::$clientId.';'.$now.';fr;'.$hash);
 
-        dump($method, $endpoint, $header, $body);
         $request = new Request($method, $endpoint, $header, $body);
-        dump(__METHOD__, $request );
         return  $request;
     }
 
@@ -97,19 +101,13 @@ class Connection
             $url = self::$baseUrl.'/'.self::$serviceValidationSend;
         }
 
-        dump('url', $url);
-
         try {
             $client = new Client();
-            $request = self::createRequest($method, $url, $body);
+            $request = self::createRequest($method, $url, $body, $service);
             $response = $client->send($request);
-
-            dump('response', $response);
 
         } catch (\Exception $ex) {
             $error = $ex->getResponse()->getBody()->getContents();
-
-            dump('error', $error, $ex);
 
             throw new ApiException($error, $ex->getResponse()->getStatusCode());
         }
@@ -117,11 +115,8 @@ class Connection
         try {
             $parsedResponse = self::parseResponse($response, $request->getMethod());
 
-            dump('persed response', $parsedResponse);
             return $parsedResponse;
         } catch (\Exception $ex) {
-
-            dump('parsederror', $ex);
             throw new ApiException($e->getMessage(), $e->getStatusCode());
         }
     }
@@ -133,7 +128,6 @@ class Connection
         }
 
         if (self::CONTENT_TYPE_JSON === self::$contentType) {
-            dump(__METHOD__, $response);
             return self::parseJSON($response, $returnSingleIfPossible);
         }
 
