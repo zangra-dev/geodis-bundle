@@ -126,6 +126,7 @@ use GeodisBundle\Model\Base\Model;
  * @property int    nosUmsAEtiqueter                Facultatif      Numero du colis à étiqueter
 
  * @property array  listEnvois
+ * @property array  listNosSuivis
  */
 
 class Shipment extends Model
@@ -235,6 +236,7 @@ class Shipment extends Model
     protected $étiqueter;
     protected $nosUmsAEtiqueter;
     protected $listEnvois;
+    protected $listNosSuivis;
 
 
     /**
@@ -2333,6 +2335,26 @@ class Shipment extends Model
     public function setListEnvois($listEnvois)
     {
         $this->listEnvois = $listEnvois;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getListNosSuivis()
+    {
+        return $this->listNosSuivis;
+    }
+
+    /**
+     * @param mixed $listNosSuivis
+     *
+     * @return self
+     */
+    public function setListNosSuivis($listNosSuivis)
+    {
+        $this->listNosSuivis = $listNosSuivis;
 
         return $this;
     }
