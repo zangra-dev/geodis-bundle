@@ -3,17 +3,14 @@
 namespace GeodisBundle\Event;
 
 use Doctrine\ORM\EntityManager;
-use Exception;
 use GeodisBundle\DAO\Exception\ApiExceptionInterface;
 use GeodisBundle\Entity\GeodisLogger;
 use GuzzleHttp\Exception\GuzzleException;
-use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 
-
-class ExceptionListener{
-
+class ExceptionListener
+{
     private $em;
 
     public function __construct(EntityManager $em)
@@ -24,13 +21,11 @@ class ExceptionListener{
     public function onKernelException(GetResponseForExceptionEvent $event)
     {
         if ($event->getException() instanceof ApiExceptionInterface || $event->getException() instanceof GuzzleException) {
-
             $response = new JsonResponse($event->getException()->getMessage());
             $event->setResponse($response);
 
             $this->log($event->getException());
         }
-
     }
 
     private function log($exception)
@@ -38,14 +33,10 @@ class ExceptionListener{
         $log = new GeodisLogger();
         $log->setCode(method_exists($exception, 'getStatusCode') ? $exception->getStatusCode() : $exception->getCode());
         $log->setMessage($exception->getMessage());
-        $log->setCalled('file :'. $exception->getTrace()[0]['file'].' line : '.$exception->getTrace()[0]['line']);
-        $log->setOccured('file :'. $exception->getFile() .' line : '.$exception->getLine());
+        $log->setCalled('file :'.$exception->getTrace()[0]['file'].' line : '.$exception->getTrace()[0]['line']);
+        $log->setOccured('file :'.$exception->getFile().' line : '.$exception->getLine());
 
         $this->em->persist($log);
         $this->em->flush();
     }
-
 }
-
-
-?>

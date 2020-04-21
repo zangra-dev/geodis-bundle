@@ -3,10 +3,8 @@
 namespace GeodisBundle\Manager;
 
 use Doctrine\ORM\EntityManager;
-use Symfony\Component\HttpFoundation\Request;
 use GeodisBundle\DAO\Connection;
 use GeodisBundle\DAO\Exception\ApiException;
-
 
 abstract class GeodisManager
 {
@@ -29,7 +27,6 @@ abstract class GeodisManager
     {
         try {
             Connection::setConfig($this->config, $this->em);
-
         } catch (ApiException $e) {
             throw new Exception("Can't initiate connection: ", $e->getCode());
         }

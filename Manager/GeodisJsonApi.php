@@ -38,7 +38,6 @@ class GeodisJsonApi extends GeodisManager
         return $result;
     }
 
-
     //       public function remove($entity)
     //       {
     //           $json = $entity->toJson();

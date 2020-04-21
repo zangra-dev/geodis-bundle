@@ -4,9 +4,8 @@ namespace GeodisBundle\Model;
 
 use GeodisBundle\Model\Base\Model;
 
-
 /**
- * Class Shipment
+ * Class Shipment.
  *
  * @property bool   impressionEtiquette             Facultatif      Impresion étiquette Valeur false par défaut si non renseigné
  * @property string typeImpressionEtiquette         Facultatif      P: PDF 2 par page T: PDF A4 Z: Thermique Zpl E: Thermique Epl   Format étiquette
@@ -128,7 +127,6 @@ use GeodisBundle\Model\Base\Model;
  * @property array  listEnvois
  * @property array  listNosSuivis
  */
-
 class Shipment extends Model
 {
     protected $impressionEtiquette;
@@ -237,7 +235,6 @@ class Shipment extends Model
     protected $nosUmsAEtiqueter;
     protected $listEnvois;
     protected $listNosSuivis;
-
 
     /**
      * @return mixed

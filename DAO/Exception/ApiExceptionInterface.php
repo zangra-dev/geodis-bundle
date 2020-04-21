@@ -3,12 +3,8 @@
 namespace GeodisBundle\DAO\Exception;
 
 /**
- * interface ApiExceptionInterface
- *
+ * interface ApiExceptionInterface.
  */
-
 interface ApiExceptionInterface
 {
-
-
 }

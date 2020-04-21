@@ -34,8 +34,6 @@ class Connection
         self::$clientSecret = $config['clientSecret'];
     }
 
-
-
     /**
      * Create Request.
      *
@@ -65,9 +63,9 @@ class Connection
             ZANGRA;1584105904250;fr;64c34a8d118f81f9c72682779cac98501d860cc1e2eb76456887b105aaa5b3cd
         */
         $now = new \DateTime('now');
-        $now = $now->getTimestamp()*1000;
+        $now = $now->getTimestamp() * 1000;
 
-        if ($serviceCalled == "enregistrement") {
+        if ('enregistrement' == $serviceCalled) {
             $serviceCalled = self::$serviceRecordSend;
         } else {
             $serviceCalled = self::$serviceValidationSend;
@@ -80,6 +78,7 @@ class Connection
         $header = array('X-GEODIS-Service' => self::$clientId.';'.$now.';fr;'.$hash);
 
         $request = new Request($method, $endpoint, $header, $body);
+
         return  $request;
     }
 
@@ -95,7 +94,7 @@ class Connection
     public static function Request($method, $service, $body = null)
     {
         //$url = self::$baseUrl;
-        if ($service == "enregistrement") {
+        if ('enregistrement' == $service) {
             $url = self::$baseUrl.'/'.self::$serviceRecordSend;
         } else {
             $url = self::$baseUrl.'/'.self::$serviceValidationSend;
@@ -105,7 +104,6 @@ class Connection
             $client = new Client();
             $request = self::createRequest($method, $url, $body, $service);
             $response = $client->send($request);
-
         } catch (\Exception $ex) {
             $error = $ex->getResponse()->getBody()->getContents();
 
