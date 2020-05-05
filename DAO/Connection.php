@@ -107,7 +107,7 @@ class Connection
         } catch (\Exception $ex) {
             $error = $ex->getResponse()->getBody()->getContents();
 
-            throw new ApiException($error, $ex->getResponse()->getStatusCode());
+            throw new ApiException($ex->getMessage(), $ex->getResponse()->getStatusCode());
         }
 
         try {
