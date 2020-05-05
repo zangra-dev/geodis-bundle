@@ -20,6 +20,16 @@ use GeodisBundle\Model\Base\Model;
  * @property int    codePorte                    Facultatif      Code Porte
  * @property int    codeTiers                    Facultatif
  * @property string noEntrepositaireAgree        Facultatif      N° Entrepositaire cleint Expéditeur
+ *
+ * Everything must be put in an array and the property are the key of the array. For exemple
+ *  $expediteur = array();
+ *  $expediteur['adresse1'] = 'xxx';
+ *  $expediteur['codePays'] = 'xxx';
+ *
+ *  The set and get are presents in case there is a update in the operation
+ *  In the future, may be
+ *  $expediteur = new Expediteur()
+ *  will be correct
  */
 
 class Expediteur extends Model

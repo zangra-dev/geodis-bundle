@@ -21,6 +21,16 @@ use GeodisBundle\Model\Base\Model;
  * @property int    codeTiers                       Facultatif      Code destinataire   Obligatoire si Regroupement
  * @property int    noEntrepositaireAgree           Facultatif      Numéro Entrepositaire agréé destinataire
  * @property bool   particulier                     Facultatif      Type destinataire
+ *
+ * Everything must be put in an array and the property are the key of the array. For exemple
+ *  $destinataire = array();
+ *  $destinataire['adresse1'] = 'xxx';
+ *  $destinataire['codePays'] = 'xxx';
+ *
+ *  The set and get are presents in case there is a update in the operation
+ *  In the future, may be
+ *  $destinataire = new Destinaire()
+ *  will be correct
  */
 
 class Destinataire extends Model

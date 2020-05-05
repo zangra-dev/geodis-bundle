@@ -16,6 +16,16 @@ use GeodisBundle\Model\Base\Model;
  * @property int    largeur                         Facultatif      Largeur UM
  * @property int    hauteur                         Facultatif      Hauteur UM
  * @property string referenceColis                 Facultatif      Référence UM
+ *
+ * Everything must be put in an array and the property are the key of the array. For exemple
+ *  $listUmg = array();
+ *  $listUmg['palette'] = 'xxx';
+ *  $listUmg['quantite'] = 'xxx';
+ *
+ *  The set and get are presents in case there is a update in the operation
+ *  In the future, may be
+ *  $listUmg = new listUmg()
+ *  will be correct
  */
 
 class ListUmg extends Model
@@ -93,19 +103,19 @@ class ListUmg extends Model
     /**
      * @return mixed
      */
-    public function getPoidsUnitaire()
+    public function getPoids()
     {
-        return $this->poidsUnitaire;
+        return $this->poids;
     }
 
     /**
-     * @param mixed $poidsUnitaire
+     * @param mixed $poids
      *
      * @return self
      */
-    public function setPoidsUnitaire($poidsUnitaire)
+    public function setPoids($poids)
     {
-        $this->poidsUnitaire = $poidsUnitaire;
+        $this->poids = $poids;
 
         return $this;
     }
@@ -113,19 +123,19 @@ class ListUmg extends Model
     /**
      * @return mixed
      */
-    public function getVolumeUnitaire()
+    public function getVolume()
     {
-        return $this->volumeUnitaire;
+        return $this->volume;
     }
 
     /**
-     * @param mixed $volumeUnitaire
+     * @param mixed $volume
      *
      * @return self
      */
-    public function setVolumeUnitaire($volumeUnitaire)
+    public function setVolume($volume)
     {
-        $this->volumeUnitaire = $volumeUnitaire;
+        $this->volume = $volume;
 
         return $this;
     }
@@ -133,19 +143,19 @@ class ListUmg extends Model
     /**
      * @return mixed
      */
-    public function getLongueurUnitaire()
+    public function getLongueur()
     {
-        return $this->longueurUnitaire;
+        return $this->longueur;
     }
 
     /**
-     * @param mixed $longueurUnitaire
+     * @param mixed $longueur
      *
      * @return self
      */
-    public function setLongueurUnitaire($longueurUnitaire)
+    public function setLongueur($longueur)
     {
-        $this->longueurUnitaire = $longueurUnitaire;
+        $this->longueur = $longueur;
 
         return $this;
     }
@@ -153,19 +163,19 @@ class ListUmg extends Model
     /**
      * @return mixed
      */
-    public function getLargeurUnitaire()
+    public function getLargeur()
     {
-        return $this->largeurUnitaire;
+        return $this->largeur;
     }
 
     /**
-     * @param mixed $largeurUnitaire
+     * @param mixed $largeur
      *
      * @return self
      */
-    public function setLargeurUnitaire($largeurUnitaire)
+    public function setLargeur($largeur)
     {
-        $this->largeurUnitaire = $largeurUnitaire;
+        $this->largeur = $largeur;
 
         return $this;
     }
@@ -173,19 +183,19 @@ class ListUmg extends Model
     /**
      * @return mixed
      */
-    public function getHauteurUnitaire()
+    public function getHauteur()
     {
-        return $this->hauteurUnitaire;
+        return $this->hauteur;
     }
 
     /**
-     * @param mixed $hauteurUnitaire
+     * @param mixed $hauteur
      *
      * @return self
      */
-    public function setHauteurUnitaire($hauteurUnitaire)
+    public function setHauteur($hauteur)
     {
-        $this->hauteurUnitaire = $hauteurUnitaire;
+        $this->hauteur = $hauteur;
 
         return $this;
     }
