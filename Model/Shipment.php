@@ -58,4 +58,164 @@ class Shipment extends Model
     protected $listNosSuivis;
 
 
+
+    /**
+     * @return mixed
+     */
+    public function getImpressionEtiquette()
+    {
+        return $this->impressionEtiquette;
+    }
+
+    /**
+     * @param mixed $impressionEtiquette
+     *
+     * @return self
+     */
+    public function setImpressionEtiquette($impressionEtiquette)
+    {
+        $this->impressionEtiquette = $impressionEtiquette;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTypeImpressionEtiquette()
+    {
+        return $this->typeImpressionEtiquette;
+    }
+
+    /**
+     * @param mixed $typeImpressionEtiquette
+     *
+     * @return self
+     */
+    public function setTypeImpressionEtiquette($typeImpressionEtiquette)
+    {
+        $this->typeImpressionEtiquette = $typeImpressionEtiquette;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getValidationEnvoi()
+    {
+        return $this->validationEnvoi;
+    }
+
+    /**
+     * @param mixed $validationEnvoi
+     *
+     * @return self
+     */
+    public function setValidationEnvoi($validationEnvoi)
+    {
+        $this->validationEnvoi = $validationEnvoi;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSuppressionSiEchecValidation()
+    {
+        return $this->suppressionSiEchecValidation;
+    }
+
+    /**
+     * @param mixed $suppressionSiEchecValidation
+     *
+     * @return self
+     */
+    public function setSuppressionSiEchecValidation($suppressionSiEchecValidation)
+    {
+        $this->suppressionSiEchecValidation = $suppressionSiEchecValidation;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImpressionBordereau()
+    {
+        return $this->impressionBordereau;
+    }
+
+    /**
+     * @param mixed $impressionBordereau
+     *
+     * @return self
+     */
+    public function setImpressionBordereau($impressionBordereau)
+    {
+        $this->impressionBordereau = $impressionBordereau;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImpressionRecapitulatif()
+    {
+        return $this->impressionRecapitulatif;
+    }
+
+    /**
+     * @param mixed $impressionRecapitulatif
+     *
+     * @return self
+     */
+    public function setImpressionRecapitulatif($impressionRecapitulatif)
+    {
+        $this->impressionRecapitulatif = $impressionRecapitulatif;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getListEnvois()
+    {
+        return $this->listEnvois;
+    }
+
+    /**
+     * @param mixed $listEnvois
+     *
+     * @return self
+     */
+    public function setListEnvois($listEnvois)
+    {
+        $this->listEnvois = $listEnvois;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getListNosSuivis()
+    {
+        return $this->listNosSuivis;
+    }
+
+    /**
+     * @param mixed $listNosSuivis
+     *
+     * @return self
+     */
+    public function setListNosSuivis($listNosSuivis)
+    {
+        $this->listNosSuivis = $listNosSuivis;
+
+        return $this;
+    }
 }
