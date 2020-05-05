@@ -22,9 +22,9 @@ abstract class Model
 
             // If an array of entity is passed to the json, it squizzed it,
             // rebuild an proper array without being entity and pass it to the $json array
-            // if ('KeyArray' == $key) {
-            //     $value = $this->encodeLines($value);
-            // }
+            if ('listEnvois' == $key) {
+                $value = $this->encodeLines($value);
+            }
 
             $json[$key] = $value;
         }
@@ -33,6 +33,37 @@ abstract class Model
     }
 
     private function encodeLines($value)
+    {
+        $salesOrderLines = array();
+        foreach ($value as $line) {
+            $salesOrderLine = array();
+            foreach ($line as $entryKey => $entry) {
+                if ('url' === $entryKey or 'primaryKey' === $entryKey) {
+                    continue;
+                }
+                if (null === $entry) {
+                    continue;
+                }
+
+                if ('destinataire' == $key) {
+                    $entry = $this->encodeSubLines($value);
+                }
+                if ('expediteur' == $key) {
+                    $entry = $this->encodeSubLines($value);
+                }
+                if ('listUmgs' == $key) {
+                    $entry = $this->encodeSubLines($value);
+                }
+
+                $salesOrderLine[$entryKey] = $entry;
+            }
+            array_push($salesOrderLines, $salesOrderLine);
+        }
+
+        return $salesOrderLines;
+    }
+
+    private function encodeSubLines($value)
     {
         $salesOrderLines = array();
         foreach ($value as $line) {
