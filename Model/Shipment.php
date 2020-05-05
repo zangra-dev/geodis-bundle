@@ -14,32 +14,7 @@ use GeodisBundle\Model\Base\Model;
  * @property bool   impressionBordereau             Facultatif      Impression du Bordereau chauffeur PDF
  * @property bool   impressionRecapitulatif         Facultatif      Impression du récapitulatif des Expéditions PDF
  *
- * Donnée Expédition
- * @property int    qteUniteTaxation                Facultatif      Quantité unité de taxation
- * @property int    codeUniteTaxation               Facultatif      Code unité taxation
- * @property int    montantValeurDeclaree           Facultatif      Montant de la Valeur déclarée
- * @property int    codeDeviseValeurDeclaree        Facultatif      Code devise pour la Valeur déclarée Contrôle sur devise espace
- * @property int    montantContreRemboursement      Facultatif      Montant du Contre-remboursement
- * @property int    codeDeviseCodeContreRemboursement Facultatif    Code devise du Contre-remboursement Contrôle sur devise espace
  *
- * Matières Dangereuses
- * @property int    noONU0                          Facultatif      Numéro ONU
- * @property int    groupeEmballage0                Facultatif      Groupe d'emballage
- * @property int    classeADR0                      Facultatif      Classe ADR
- * @property string codeTypeEmballage0              Facultatif      Type emballage
- * @property int    nbEmballages0                   Facultatif      Nbre d'emballage
- * @property string nomTechnique0                   Facultatif      Nom technique
- * @property string codeQuantite0                   Facultatif      Unité
- * @property int    quantite0                       Facultatif      Qté
- * @property bool   dangerEnv0                      Facultatif      Produit dangereux pour l'environnement
- *
- * Vins et Spiritueux
- * @property string regimeFiscal0                   Facultatif      Régime Fiscal
- * @property int    nbCols0                         Facultatif      Nbre colis Qté exceptée
- * @property int    contenance0                     Facultatif      Contenance
- * @property int    volumeEnDroits0                 Facultatif      Volume en droits
- * @property int    noTitreMvtRefAdmin0             Facultatif      N° titre de mouvement
- * @property int    dureeTransport0                 Facultatif      Durée transport
  *
  * Colis a étiqueter
  * @property array  listEnvois

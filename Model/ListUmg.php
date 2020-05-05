@@ -10,11 +10,11 @@ use GeodisBundle\Model\Base\Model;
  * @property bool   palette                        Facultatif      UM= palette true si um= palette
  * @property bool   paletteConsignee               Facultatif      UM= Palette consignée   true si palette consignée
  * @property int    quantite                       Obligatoire     Nombre d'UM
- * @property int    poidsUnitaire                  Facultatif      Poids UM    Obligatoire si Poids Total non renseigné
- * @property int    volumeUnitaire                 Facultatif      Volume UM
- * @property int    longueurUnitaire               Facultatif      Longueur UM
- * @property int    largeurUnitaire                Facultatif      Largeur UM
- * @property int    hauteurUnitaire                Facultatif      Hauteur UM
+ * @property int    poids                           Facultatif      Poids UM    Obligatoire si Poids Total non renseigné
+ * @property int    volume                          Facultatif      Volume UM
+ * @property int    longueur                        Facultatif      Longueur UM
+ * @property int    largeur                         Facultatif      Largeur UM
+ * @property int    hauteur                         Facultatif      Hauteur UM
  * @property string referenceColis                 Facultatif      Référence UM
  */
 
@@ -23,11 +23,11 @@ class ListUmg extends Model
     protected $palette;
     protected $paletteConsignee;
     protected $quantite;
-    protected $poidsUnitaire;
-    protected $volumeUnitaire;
-    protected $longueurUnitaire;
-    protected $largeurUnitaire;
-    protected $hauteurUnitaire;
+    protected $poids;
+    protected $volume;
+    protected $longueur;
+    protected $largeur;
+    protected $hauteur;
     protected $referenceColis;
 
     /**
