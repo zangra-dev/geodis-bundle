@@ -45,13 +45,13 @@ abstract class Model
                     continue;
                 }
 
-                if ('destinataire' == $key) {
+                if ('destinataire' == $entryKey) {
                     $entry = $this->encodeSubLines($value);
                 }
-                if ('expediteur' == $key) {
+                if ('expediteur' == $entryKey) {
                     $entry = $this->encodeSubLines($value);
                 }
-                if ('listUmgs' == $key) {
+                if ('listUmgs' == $entryKey) {
                     $entry = $this->encodeSubLines($value);
                 }
 
