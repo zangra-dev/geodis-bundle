@@ -44,7 +44,8 @@ abstract class Model
                 if (null === $entry) {
                     continue;
                 }
-
+                
+                /*
                 if ('destinataire' == $entryKey) {
                     $entry = $this->encodeSubLines($value);
                 }
@@ -54,7 +55,7 @@ abstract class Model
                 if ('listUmgs' == $entryKey) {
                     $entry = $this->encodeSubLines($value);
                 }
-
+                */
                 $salesOrderLine[$entryKey] = $entry;
             }
             array_push($salesOrderLines, $salesOrderLine);
