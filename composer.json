@@ -1,5 +1,5 @@
 {
-    "name" : "zangra/",
+    "name" : "zangra/GeodisBundle",
     "description" : "A Bundle for Geodis Labels",
     "type" : "symfony-bundle",
     "authors" : [{
@@ -22,16 +22,13 @@
         "doctrine/doctrine-bundle": "*",
         "guzzlehttp/guzzle": "^6.2"
     },
-    "autoload" : {
-        "psr-0" : {
-            "GeodisBundle" : ""
-        }
+    "autoload": {
+        "classmap": [
+            "GeodisBundle.php"
+        ]
     },
-    "target-dir" : "GeodisBundle",
-    "repositories" : [{
-    }],
     "extra" : {
-    "branch-alias" : {
+        "branch-alias" : {
             "master" : "master-dev"
         }
     }
