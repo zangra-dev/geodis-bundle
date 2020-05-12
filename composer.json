@@ -22,11 +22,14 @@
         "doctrine/doctrine-bundle": "*",
         "guzzlehttp/guzzle": "^6.2"
     },
+
     "autoload" : {
         "psr-0" : {
-            "GeodisBundle\\GeodisBundle" : ""
+            "GeodisBundle" : ""
         }
     },
+    "repositories" : [{
+    }],
     "extra" : {
         "branch-alias" : {
             "master" : "master-dev"
