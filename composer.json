@@ -22,10 +22,10 @@
         "doctrine/doctrine-bundle": "*",
         "guzzlehttp/guzzle": "^6.2"
     },
-    "autoload": {
-        "classmap": [
-            "GeodisBundle.php"
-        ]
+    "autoload" : {
+        "psr-0" : {
+            "GeodisBundle" : ""
+        }
     },
     "extra" : {
         "branch-alias" : {
