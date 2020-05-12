@@ -27,7 +27,9 @@
             "GeodisBundle" : ""
         }
     },
-
+    "target-dir" : "GeodisBundle",
+    "repositories" : [{
+    }],
     "extra" : {
     "branch-alias" : {
             "master" : "master-dev"
