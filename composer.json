@@ -28,6 +28,7 @@
             "GeodisBundle" : ""
         }
     },
+    "target-dir" : "GeodisBundle",
     "repositories" : [{
     }],
     "extra" : {
