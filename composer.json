@@ -1,5 +1,5 @@
 {
-    "name" : "zangra/GeodisBundle",
+    "name" : "zangra/",
     "description" : "A Bundle for Geodis Labels",
     "type" : "symfony-bundle",
     "authors" : [{
