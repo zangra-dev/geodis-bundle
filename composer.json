@@ -23,10 +23,8 @@
         "guzzlehttp/guzzle": "^6.2"
     },
 
-    "autoload" : {
-        "psr-0" : {
-            "GeodisBundle" : ""
-        }
+    "autoload": {
+        "psr-4": { "zangra\\GeodisBundle\\" : "src/" }
     },
     "target-dir" : "GeodisBundle",
     "repositories" : [{
