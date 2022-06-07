@@ -17,8 +17,8 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('geodis_shipment');
+        $treeBuilder = new TreeBuilder('geodis_shipment');
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->children()
