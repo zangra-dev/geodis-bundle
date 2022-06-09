@@ -7,7 +7,7 @@ use GeodisBundle\DAO\Exception\ApiExceptionInterface;
 use GeodisBundle\Entity\GeodisLogger;
 use GuzzleHttp\Exception\GuzzleException;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
+use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 
 class ExceptionListener
 {
@@ -18,13 +18,13 @@ class ExceptionListener
         $this->em = $em;
     }
 
-    public function onKernelException(GetResponseForExceptionEvent $event)
+    public function onKernelException(ExceptionEvent $event)
     {
-        if ($event->getException() instanceof ApiExceptionInterface || $event->getException() instanceof GuzzleException) {
-            $response = new JsonResponse($event->getException()->getMessage());
+        if ($event->getThrowable() instanceof ApiExceptionInterface || $event->getThrowable() instanceof GuzzleException) {
+            $response = new JsonResponse($event->getThrowable()->getMessage());
             $event->setResponse($response);
 
-            $this->log($event->getException());
+            $this->log($event->getThrowable());
         }
     }
 
