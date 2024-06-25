@@ -1,6 +1,6 @@
 {
     "name": "zangra/geodis-bundle",
-    "version": "2.2",
+    "version": "2.3",
     "description": "A Bundle for Geodis Labels",
     "type": "symfony-bundle",
     "authors": [
@@ -32,7 +32,7 @@
     "target-dir": "GeodisBundle",
     "extra": {
         "branch-alias": {
-            "master": "master-dev"
+            "master": "2.0-dev"
         }
     }
 }
