@@ -11,7 +11,7 @@ A Symfony bundle for Geodis Labels.
 To install GeodisBundle, use Composer:
 
 ```bash
-composer require zangra/geodisbundle
+composer require zangra/geodis-bundle
 
 ```
 
