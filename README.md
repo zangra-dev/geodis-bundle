@@ -1,5 +1,11 @@
-# GeodisBundle
+# Geodis Bundle
 
+[![Latest Stable Version](http://poser.pugx.org/zangra/geodis-bundle/v)](https://packagist.org/packages/zangra/geodis-bundle)
+[![Build Status](https://scrutinizer-ci.com/g/zangra-dev/geodis-bundle/badges/build.png?b=master)](https://scrutinizer-ci.com/g/zangra-dev/geodis-bundle/build-status/master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/zangra-dev/geodis-bundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/zangra-dev/geodis-bundle/?branch=master)
+[![License](http://poser.pugx.org/zangra/geodis-bundle/license)](https://packagist.org/packages/zangra/geodis-bundle) [![PHP Version Require](http://poser.pugx.org/zangra/geodis-bundle/require/php)](https://packagist.org/packages/zangra/geodis-bundle)
+
+## About
 A Symfony bundle for Geodis Labels.
 
 ## Description
