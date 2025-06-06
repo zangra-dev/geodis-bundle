@@ -17,8 +17,8 @@
         "MIT"
     ],
     "require" : {
-        "php": "^7.4 || 8.1",
-        "symfony/framework-bundle": "^5.4",
+        "php": "^8.1",
+        "symfony/framework-bundle": "^6.4",
         "doctrine/doctrine-bundle": "*",
         "guzzlehttp/guzzle": "^6.2 || ^7.2"
     },
