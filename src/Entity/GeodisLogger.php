@@ -1,29 +1,37 @@
-<?php
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace GeodisBundle\Entity;
 
 use App\Common\Traits\TimestampableTrait;
-use Gedmo\Mapping\Annotation as Gedmo;
+use Doctrine\ORM\Mapping as ORM;
 
-class GeodisLogger
+#[ORM\Entity(repositoryClass: \GeodisBundle\Repository\GeodisLoggerRepository::class)]
+#[ORM\Table(name: 'export_geodis_log')]
+final class GeodisLogger
 {
     use TimestampableTrait;
 
-    public int $id;
-    public int $code;
-    public string $message;
-    public string $called;
-    public string $occured;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
+    private ?int $id = null;
 
-    public function getId(): int
+    // en XML c'était "text" mais la propriété est un entier : on aligne en integer
+    #[ORM\Column(type: 'integer')]
+    private int $code;
+
+    #[ORM\Column(type: 'text')]
+    private string $message;
+
+    #[ORM\Column(type: 'text')]
+    private string $called;
+
+    #[ORM\Column(type: 'text')]
+    private string $occured;
+
+    public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function setId(int $id): void
-    {
-        $this->id = $id;
     }
 
     public function getCode(): int
@@ -64,15 +72,5 @@ class GeodisLogger
     public function setOccured(string $occured): void
     {
         $this->occured = $occured;
-    }
-
-    public function getCreatedAt(): DateTime
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(DateTime $createdAt): void
-    {
-        $this->createdAt = $createdAt;
     }
 }
