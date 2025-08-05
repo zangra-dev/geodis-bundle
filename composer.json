@@ -1,37 +1,54 @@
 {
-    "name" : "zangra/geodis-bundle",
-    "description" : "A Bundle for Geodis Labels",
-    "type" : "symfony-bundle",
+    "name":        "zangra/geodis-bundle",
+    "description": "Geodis REST/JSON integration for Sylius / Symfony projects",
+    "type":        "symfony-bundle",
+    "license":     "MIT",
     "authors" : [{
         "name" : "Maxime Lambot",
         "email" : "maxime@zangra.com"
     }],
-    "keywords" : [
-        "Symfony",
-        "api",
-        "geodis",
-        "labels",
-        "php"
-    ],
-    "license" : [
-        "MIT"
-    ],
-    "require" : {
+
+    "require": {
         "php": "^8.1",
         "symfony/framework-bundle": "^6.4",
-        "doctrine/doctrine-bundle": "*",
-        "guzzlehttp/guzzle": "^6.2 || ^7.2"
+        "symfony/http-client":       "^6.4",
+        "symfony/http-kernel":       "^6.4",
+        "symfony/dependency-injection": "^6.4",
+        "symfony/config":            "^6.4",
+        "doctrine/orm":              "^2.17",
+        "doctrine/doctrine-bundle":  "^2.10",
+        "doctrine/migrations":       "^3"
     },
 
-    "autoload" : {
-        "psr-0" : {
-            "GeodisBundle" : ""
+    "require-dev": {
+        "symfony/phpunit-bridge": "^6.4",
+        "phpstan/phpstan":        "^1.11"
+    },
+
+
+    "autoload": {
+        "psr-4": {
+            "GeodisBundle\\": "src/"
         }
     },
-    "target-dir" : "GeodisBundle",
-    "extra" : {
-        "branch-alias" : {
-            "master" : "master-dev"
+
+    "autoload-dev": {
+        "psr-4": {
+            "GeodisBundle\\Tests\\": "tests/"
         }
+    },
+
+    "extra": {
+        "branch-alias": {
+            "dev-main": "3.0-dev"
+        },
+        "symfony": {
+            "bundle": "GeodisBundle\\\\GeodisBundle"
+        }
+    },
+
+
+    "scripts": {
+        "test": "phpunit"
     }
 }
