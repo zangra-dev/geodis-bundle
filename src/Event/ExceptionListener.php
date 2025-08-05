@@ -9,36 +9,60 @@ use GuzzleHttp\Exception\GuzzleException;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
+use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
+use Symfony\Component\HttpKernel\KernelEvents;
 
-#[AsEventListener(event: 'kernel.exception')]
 class ExceptionListener
 {
-    private $em;
+    public function __construct(
+        private readonly EntityManagerInterface $em
+    ) {}
 
-    public function __construct(EntityManagerInterface $em)
+    #[AsEventListener(event: KernelEvents::EXCEPTION)]
+    public function onKernelException(ExceptionEvent $event): void
     {
-        $this->em = $em;
-    }
+        $e = $event->getThrowable();
 
-    public function onKernelException(ExceptionEvent $event)
-    {
-        if ($event->getThrowable() instanceof ApiExceptionInterface || $event->getThrowable() instanceof GuzzleException) {
-            $response = new JsonResponse($event->getThrowable()->getMessage());
-            $event->setResponse($response);
-
-            $this->log($event->getThrowable());
+        if (!($e instanceof ApiExceptionInterface || $e instanceof GuzzleException)) {
+            return;
         }
+
+        $status = $e instanceof HttpExceptionInterface ? $e->getStatusCode() : 500;
+
+        $event->setResponse(new JsonResponse(
+            ['error' => $e->getMessage()],
+            $status
+        ));
+
+        $this->log($e);
     }
 
-    private function log($exception)
+    private function log(\Throwable $exception): void
     {
-        $log = new GeodisLogger();
-        $log->setCode(method_exists($exception, 'getStatusCode') ? $exception->getStatusCode() : $exception->getCode());
-        $log->setMessage($exception->getMessage());
-        $log->setCalled('file :'.$exception->getTrace()[0]['file'].' line : '.$exception->getTrace()[0]['line']);
-        $log->setOccured('file :'.$exception->getFile().' line : '.$exception->getLine());
+        try {
+            $log = new GeodisLogger();
 
-        $this->em->persist($log);
-        $this->em->flush();
+            $statusOrCode = $exception instanceof HttpExceptionInterface
+                ? $exception->getStatusCode()
+                : ($exception->getCode() !== 0 ? $exception->getCode() : 500);
+
+            $trace  = $exception->getTrace();
+            $first  = $trace[0] ?? null;
+
+            $called  = $first
+                ? sprintf('file: %s line: %s', $first['file'] ?? 'n/a', $first['line'] ?? 'n/a')
+                : 'n/a';
+
+            $occured = sprintf('file: %s line: %s', $exception->getFile(), $exception->getLine());
+
+            $log->setCode((int) $statusOrCode);
+            $log->setMessage($exception->getMessage());
+            $log->setCalled($called);
+            $log->setOccured($occured);
+
+            $this->em->persist($log);
+            $this->em->flush();
+        } catch (\Throwable) {
+        }
     }
 }
