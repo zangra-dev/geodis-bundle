@@ -7,191 +7,108 @@ use GeodisBundle\Domain\Base\Model;
 
 /**
  * Class Shipment.
- *
- * @property bool   impressionEtiquette             Facultatif      Impresion étiquette Valeur false par défaut si non renseigné
- * @property string typeImpressionEtiquette         Facultatif      P: PDF 2 par page T: PDF A4 Z: Thermique Zpl E: Thermique Epl   Format étiquette
- * @property bool   validationEnvoi                 Facultatif      Validation vers GEODIS
- * @property bool   suppressionSiEchecValidation    Facultatif
- * @property bool   impressionBordereau             Facultatif      Impression du Bordereau chauffeur PDF
- * @property bool   impressionRecapitulatif         Facultatif      Impression du récapitulatif des Expéditions PDF
- *
- *
- *
  * Colis a étiqueter
- * @property array  listEnvois
- * @property array  listNosSuivis
+ * listEnvois
+ * listNosSuivis
+ *
+ * impressionEtiquette                   Impresion étiquette Valeur false par défaut si non renseigné
+ * typeImpressionEtiquette               P: PDF 2 par page T: PDF A4 Z: Thermique Zpl E: Thermique Epl   Format étiquette
+ * validationEnvoi                       Validation vers GEODIS
+ * suppressionSiEchecValidation
+ *  impressionBordereau                  Impression du Bordereau chauffeur PDF
+ *  impressionRecapitulatif              Impression du récapitulatif des Expéditions PDF
+ *
  */
 class Shipment extends Model
 {
-    protected $impressionEtiquette;
-    protected $typeImpressionEtiquette;
-    protected $validationEnvoi;
-    protected $suppressionSiEchecValidation;
-    protected $impressionBordereau;
-    protected $impressionRecapitulatif;
 
-    protected $listEnvois;
-    protected $listNosSuivis;
+    protected array $listEnvois;
+    protected array $listNosSuivis;
 
+    protected ?bool $impressionEtiquette = null;
+    protected ?string $typeImpressionEtiquette = null;
+    protected ?bool $validationEnvoi = null;
+    protected ?bool $suppressionSiEchecValidation = null;
+    protected ?bool $impressionBordereau = null;
+    protected ?bool $impressionRecapitulatif = null;
 
-
-    /**
-     * @return mixed
-     */
-    public function getImpressionEtiquette()
-    {
-        return $this->impressionEtiquette;
-    }
-
-    /**
-     * @param mixed $impressionEtiquette
-     *
-     * @return self
-     */
-    public function setImpressionEtiquette($impressionEtiquette)
-    {
-        $this->impressionEtiquette = $impressionEtiquette;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTypeImpressionEtiquette()
-    {
-        return $this->typeImpressionEtiquette;
-    }
-
-    /**
-     * @param mixed $typeImpressionEtiquette
-     *
-     * @return self
-     */
-    public function setTypeImpressionEtiquette($typeImpressionEtiquette)
-    {
-        $this->typeImpressionEtiquette = $typeImpressionEtiquette;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getValidationEnvoi()
-    {
-        return $this->validationEnvoi;
-    }
-
-    /**
-     * @param mixed $validationEnvoi
-     *
-     * @return self
-     */
-    public function setValidationEnvoi($validationEnvoi)
-    {
-        $this->validationEnvoi = $validationEnvoi;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSuppressionSiEchecValidation()
-    {
-        return $this->suppressionSiEchecValidation;
-    }
-
-    /**
-     * @param mixed $suppressionSiEchecValidation
-     *
-     * @return self
-     */
-    public function setSuppressionSiEchecValidation($suppressionSiEchecValidation)
-    {
-        $this->suppressionSiEchecValidation = $suppressionSiEchecValidation;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getImpressionBordereau()
-    {
-        return $this->impressionBordereau;
-    }
-
-    /**
-     * @param mixed $impressionBordereau
-     *
-     * @return self
-     */
-    public function setImpressionBordereau($impressionBordereau)
-    {
-        $this->impressionBordereau = $impressionBordereau;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getImpressionRecapitulatif()
-    {
-        return $this->impressionRecapitulatif;
-    }
-
-    /**
-     * @param mixed $impressionRecapitulatif
-     *
-     * @return self
-     */
-    public function setImpressionRecapitulatif($impressionRecapitulatif)
-    {
-        $this->impressionRecapitulatif = $impressionRecapitulatif;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getListEnvois()
+    public function getListEnvois(): array
     {
         return $this->listEnvois;
     }
 
-    /**
-     * @param mixed $listEnvois
-     *
-     * @return self
-     */
-    public function setListEnvois($listEnvois)
+    public function setListEnvois(array $listEnvois): void
     {
         $this->listEnvois = $listEnvois;
-
-        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getListNosSuivis()
+    public function getListNosSuivis(): array
     {
         return $this->listNosSuivis;
     }
 
-    /**
-     * @param mixed $listNosSuivis
-     *
-     * @return self
-     */
-    public function setListNosSuivis($listNosSuivis)
+    public function setListNosSuivis(array $listNosSuivis): void
     {
         $this->listNosSuivis = $listNosSuivis;
+    }
 
-        return $this;
+    public function getImpressionEtiquette(): ?bool
+    {
+        return $this->impressionEtiquette;
+    }
+
+    public function setImpressionEtiquette(?bool $impressionEtiquette): void
+    {
+        $this->impressionEtiquette = $impressionEtiquette;
+    }
+
+    public function getTypeImpressionEtiquette(): ?string
+    {
+        return $this->typeImpressionEtiquette;
+    }
+
+    public function setTypeImpressionEtiquette(?string $typeImpressionEtiquette): void
+    {
+        $this->typeImpressionEtiquette = $typeImpressionEtiquette;
+    }
+
+    public function getValidationEnvoi(): ?bool
+    {
+        return $this->validationEnvoi;
+    }
+
+    public function setValidationEnvoi(?bool $validationEnvoi): void
+    {
+        $this->validationEnvoi = $validationEnvoi;
+    }
+
+    public function getSuppressionSiEchecValidation(): ?bool
+    {
+        return $this->suppressionSiEchecValidation;
+    }
+
+    public function setSuppressionSiEchecValidation(?bool $suppressionSiEchecValidation): void
+    {
+        $this->suppressionSiEchecValidation = $suppressionSiEchecValidation;
+    }
+
+    public function getImpressionBordereau(): ?bool
+    {
+        return $this->impressionBordereau;
+    }
+
+    public function setImpressionBordereau(?bool $impressionBordereau): void
+    {
+        $this->impressionBordereau = $impressionBordereau;
+    }
+
+    public function getImpressionRecapitulatif(): ?bool
+    {
+        return $this->impressionRecapitulatif;
+    }
+
+    public function setImpressionRecapitulatif(?bool $impressionRecapitulatif): void
+    {
+        $this->impressionRecapitulatif = $impressionRecapitulatif;
     }
 }

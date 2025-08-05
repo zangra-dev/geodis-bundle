@@ -7,31 +7,21 @@ use GeodisBundle\Domain\Base\Model;
 
 /**
  * Class Destinataire.
- *  string nom                             Nom destinataire
- *  string adresse1                        Adresse 1 destinataire
- *  string adresse2                        Adresse 2 destinataire
- *  int    codePostal                      CP destinataire
- *  string ville                           Localité destinataire
- *  string codePays                        Code pays destinataire
- *  string nomContact                      Contact destinataire    Obligatoire si option livraison= RDW
- *  string email                           Mail destinataire
- *  int    telFixe                         Téléphone destinataire
- *  int    indTelMobile                    Ind. Portable destinataire
- *  int    telMobile                       Numéro portable destinataire
- *  int    codePorte                       Code port destinataire
- *  int    codeTiers                       Code destinataire   Obligatoire si Regroupement
- *  int    noEntrepositaireAgree           Numéro Entrepositaire agréé destinataire
- *  bool   particulier                     Type destinataire
- *
- * Everything must be put in an array and the property are the key of the array. For exemple
- *  $destinataire = array();
- *  $destinataire['adresse1'] = 'xxx';
- *  $destinataire['codePays'] = 'xxx';
- *
- *  The set and get are presents in case there is a update in the operation
- *  In the future, may be
- *  $destinataire = new Destinaire()
- *  will be correct
+ *  nom                             Nom destinataire
+ *  adresse1                        Adresse 1 destinataire
+ *  adresse2                        Adresse 2 destinataire
+ *  codePostal                      CP destinataire
+ *  ville                           Localité destinataire
+ *  codePays                        Code pays destinataire
+ *  nomContact                      Contact destinataire    Obligatoire si option livraison= RDW
+ *  email                           Mail destinataire
+ *  telFixe                         Téléphone destinataire
+ *  indTelMobile                    Ind. Portable destinataire
+ *  telMobile                       Numéro portable destinataire
+ *  codePorte                       Code port destinataire
+ *  codeTiers                       Code destinataire   Obligatoire si Regroupement
+ *  noEntrepositaireAgree           Numéro Entrepositaire agréé destinataire
+ *  particulier                     Type destinataire
  */
 
 class Destinataire extends Model

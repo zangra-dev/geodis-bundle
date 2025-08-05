@@ -3,137 +3,76 @@ declare(strict_types=1);
 
 namespace GeodisBundle\Entity;
 
+use App\Common\Traits\TimestampableTrait;
+use Gedmo\Mapping\Annotation as Gedmo;
+
 class GeodisLogger
 {
-    private $id;
-    private $code;
-    private $message;
-    private $called;
-    private $occured;
-    private $createdAt;
+    use TimestampableTrait;
 
-    public function __construct()
-    {
-        $this->createdAt = new \DateTime('now');
-    }
+    public int $id;
+    public int $code;
+    public string $message;
+    public string $called;
+    public string $occured;
 
-    /**
-     * @return mixed
-     */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
-    /**
-     * @param mixed $id
-     *
-     * @return self
-     */
-    public function setId($id)
+    public function setId(int $id): void
     {
         $this->id = $id;
-
-        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCode()
+    public function getCode(): int
     {
         return $this->code;
     }
 
-    /**
-     * @param mixed $code
-     *
-     * @return self
-     */
-    public function setCode($code)
+    public function setCode(int $code): void
     {
         $this->code = $code;
-
-        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getMessage()
+    public function getMessage(): string
     {
         return $this->message;
     }
 
-    /**
-     * @param mixed $message
-     *
-     * @return self
-     */
-    public function setMessage($message)
+    public function setMessage(string $message): void
     {
         $this->message = $message;
-
-        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCalled()
+    public function getCalled(): string
     {
         return $this->called;
     }
 
-    /**
-     * @param mixed $called
-     *
-     * @return self
-     */
-    public function setCalled($called)
+    public function setCalled(string $called): void
     {
         $this->called = $called;
-
-        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getOccured()
+    public function getOccured(): string
     {
         return $this->occured;
     }
 
-    /**
-     * @param mixed $occured
-     *
-     * @return self
-     */
-    public function setOccured($occured)
+    public function setOccured(string $occured): void
     {
         $this->occured = $occured;
-
-        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCreatedAt()
+    public function getCreatedAt(): DateTime
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param mixed $createdAt
-     *
-     * @return self
-     */
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt(DateTime $createdAt): void
     {
         $this->createdAt = $createdAt;
-
-        return $this;
     }
 }
