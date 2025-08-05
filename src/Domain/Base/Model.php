@@ -1,6 +1,7 @@
 <?php
+declare(strict_types=1);
 
-namespace GeodisBundle\Model\Base;
+namespace GeodisBundle\Domain\Base;
 
 /**
  * Author: Nils méchin <nils@zangra.com>

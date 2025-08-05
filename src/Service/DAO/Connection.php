@@ -1,13 +1,16 @@
 <?php
+declare(strict_types=1);
 
-namespace GeodisBundle\DAO;
+namespace GeodisBundle\Service\DAO;
 
-use Doctrine\ORM\EntityManager;
-use GeodisBundle\DAO\Exception\ApiException;
+use Doctrine\ORM\EntityManagerInterface;
+use GeodisBundle\DAO\GuzzleHttp;
+use GeodisBundle\Service\DAO\Exception\ApiException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
+use function GuzzleHttp\Psr7;
 
 class Connection
 {
@@ -23,7 +26,7 @@ class Connection
     private static $em;
     private static $contentType = self::CONTENT_TYPE_JSON;
 
-    public static function setConfig(array $config, EntityManager $em)
+    public static function setConfig(array $config, EntityManagerInterface $em)
     {
         self::$em = $em;
         self::$baseUrl = $config['baseUrl'];

@@ -2,18 +2,20 @@
 
 namespace GeodisBundle\Event;
 
-use Doctrine\ORM\EntityManager;
-use GeodisBundle\DAO\Exception\ApiExceptionInterface;
+use Doctrine\ORM\EntityManagerInterface;
 use GeodisBundle\Entity\GeodisLogger;
+use GeodisBundle\Service\DAO\Exception\ApiExceptionInterface;
 use GuzzleHttp\Exception\GuzzleException;
+use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 
+#[AsEventListener(event: 'kernel.exception')]
 class ExceptionListener
 {
     private $em;
 
-    public function __construct(EntityManager $em)
+    public function __construct(EntityManagerInterface $em)
     {
         $this->em = $em;
     }

@@ -1,10 +1,10 @@
 <?php
+declare(strict_types=1);
 
-namespace GeodisBundle\Manager;
+namespace GeodisBundle\Service;
 
-use Doctrine\ORM\EntityManager;
-use GeodisBundle\DAO\Connection;
-use GeodisBundle\DAO\Exception\ApiException;
+use Doctrine\ORM\EntityManagerInterface;
+use GeodisBundle\Service\DAO\Connection;
 
 /**
  * Author: Maxime Lambot <maxime@lambot.com>.
@@ -12,7 +12,7 @@ use GeodisBundle\DAO\Exception\ApiException;
  */
 class GeodisJsonApi extends GeodisManager
 {
-    public function __construct(EntityManager $em)
+    public function __construct(EntityManagerInterface $em)
     {
         parent::__construct($em);
     }

@@ -1,9 +1,10 @@
 <?php
+declare(strict_types=1);
 
 namespace GeodisBundle\Migrations;
 
-use Doctrine\DBAL\Migrations\AbstractMigration;
 use Doctrine\DBAL\Schema\Schema;
+use Doctrine\Migrations\AbstractMigration;
 
 /**
  * Auto-generated Migration: Please modify to your needs!

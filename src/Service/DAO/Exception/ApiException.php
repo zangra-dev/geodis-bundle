@@ -1,6 +1,7 @@
 <?php
+declare(strict_types=1);
 
-namespace GeodisBundle\DAO\Exception;
+namespace GeodisBundle\Service\DAO\Exception;
 
 use Exception;
 use Symfony\Component\HttpKernel\Exception\HttpException;

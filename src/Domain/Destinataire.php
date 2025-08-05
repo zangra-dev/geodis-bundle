@@ -1,8 +1,9 @@
 <?php
+declare(strict_types=1);
 
-namespace GeodisBundle\Model;
+namespace GeodisBundle\Domain;
 
-use GeodisBundle\Model\Base\Model;
+use GeodisBundle\Domain\Base\Model;
 
 /**
  * Class Destinataire.
