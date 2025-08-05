@@ -7,20 +7,20 @@ use GeodisBundle\Domain\Base\Model;
 
 /**
  * Class Expediteur.
- * @property string nom                          Obligatoire     Nom Expéditeur  ALGAM NATIONAL
- * @property string adresse1                     Obligatoire     Adesse 1 Enlèvement PA DES PETITES LANDES
- * @property string adresse2                     Obligatoire     Adresse 2 Enlèvement    2 RUE DE MILAN
- * @property int    codePostal                   Obligatoire     Code postal du site Enlèvement  44470
- * @property string ville                        Obligatoire     Localité Enlèvement THOUARE SUR LOIRE
- * @property string codePays                     Obligatoire     Code pays Enlèvement    FR
- * @property string nomContact                   Facultatif      Nom contact client site Enlèvement
- * @property string email                        Facultatif      Email contact client
- * @property int    telFixe                      Facultatif      Téléphone contact Enlèvement
- * @property string indTelMobile                 Facultatif      Ind. Pays mobile Enlèvement
- * @property int    telMobile                    Facultatif      Portable Enlèvement
- * @property int    codePorte                    Facultatif      Code Porte
- * @property int    codeTiers                    Facultatif
- * @property string noEntrepositaireAgree        Facultatif      N° Entrepositaire cleint Expéditeur
+ *  nom                          Nom Expéditeur  ALGAM NATIONAL
+ *  adresse1                     Adesse 1 Enlèvement PA DES PETITES LANDES
+ *  adresse2                     Adresse 2 Enlèvement    2 RUE DE MILAN
+ *  codePostal                   Code postal du site Enlèvement  44470
+ *  ville                        Localité Enlèvement THOUARE SUR LOIRE
+ *  codePays                     Code pays Enlèvement    FR
+ *  nomContact                   Nom contact client site Enlèvement
+ *  email                        Email contact client
+ *  telFixe                      Téléphone contact Enlèvement
+ *  indTelMobile                 Ind. Pays mobile Enlèvement
+ *  telMobile                    Portable Enlèvement
+ *  codePorte                    Code Porte
+ *  codeTiers
+ *  noEntrepositaireAgree        N° Entrepositaire cleint Expéditeur
  *
  * Everything must be put in an array and the property are the key of the array. For exemple
  *  $expediteur = array();
@@ -35,340 +35,180 @@ use GeodisBundle\Domain\Base\Model;
 
 class Expediteur extends Model
 {
-	protected $nom;
-	protected $adresse1;
-	protected $adresse2;
-	protected $codePostal;
-	protected $ville;
-	protected $codePays;
-	protected $nomContact;
-	protected $email;
-	protected $telFixe;
-	protected $indTelMobile;
-	protected $telMobile;
-	protected $codePorte;
-	protected $codeTiers;
-	protected $noEntrepositaireAgree;
-	protected $periodePreferenceEnlevement;
-	protected $instructionEnlevement;
+	public string $nom;
+	public string $adresse1;
+	public string $adresse2;
+	public int    $codePostal;
+	public string $ville;
+	public string $codePays;
+	public ?string $nomContact = null;
+	public ?string $email = null;
+	public ?int    $telFixe = null;
+	public ?string $indTelMobile = null;
+    public ?int    $telMobile = null;
+    public ?int    $codePorte = null;
+    public ?int    $codeTiers = null;
+	public ?string $noEntrepositaireAgree = null;
+	public ?string $periodePreferenceEnlevement = null;
+	public ?string $instructionEnlevement = null;
 
-    /**
-     * @return mixed
-     */
-    public function getNom()
+    public function getNom(): string
     {
         return $this->nom;
     }
 
-    /**
-     * @param mixed $nom
-     *
-     * @return self
-     */
-    public function setNom($nom)
+    public function setNom(string $nom): void
     {
         $this->nom = $nom;
-
-        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getAdresse1()
+    public function getAdresse1(): string
     {
         return $this->adresse1;
     }
 
-    /**
-     * @param mixed $adresse1
-     *
-     * @return self
-     */
-    public function setAdresse1($adresse1)
+    public function setAdresse1(string $adresse1): void
     {
         $this->adresse1 = $adresse1;
-
-        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getAdresse2()
+    public function getAdresse2(): string
     {
         return $this->adresse2;
     }
 
-    /**
-     * @param mixed $adresse2
-     *
-     * @return self
-     */
-    public function setAdresse2($adresse2)
+    public function setAdresse2(string $adresse2): void
     {
         $this->adresse2 = $adresse2;
-
-        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCodePostal()
+    public function getCodePostal(): int
     {
         return $this->codePostal;
     }
 
-    /**
-     * @param mixed $codePostal
-     *
-     * @return self
-     */
-    public function setCodePostal($codePostal)
+    public function setCodePostal(int $codePostal): void
     {
         $this->codePostal = $codePostal;
-
-        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getVille()
+    public function getVille(): string
     {
         return $this->ville;
     }
 
-    /**
-     * @param mixed $ville
-     *
-     * @return self
-     */
-    public function setVille($ville)
+    public function setVille(string $ville): void
     {
         $this->ville = $ville;
-
-        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCodePays()
+    public function getCodePays(): string
     {
         return $this->codePays;
     }
 
-    /**
-     * @param mixed $codePays
-     *
-     * @return self
-     */
-    public function setCodePays($codePays)
+    public function setCodePays(string $codePays): void
     {
         $this->codePays = $codePays;
-
-        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getNomContact()
+    public function getNomContact(): string
     {
         return $this->nomContact;
     }
 
-    /**
-     * @param mixed $nomContact
-     *
-     * @return self
-     */
-    public function setNomContact($nomContact)
+    public function setNomContact(string $nomContact): void
     {
         $this->nomContact = $nomContact;
-
-        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->email;
     }
 
-    /**
-     * @param mixed $email
-     *
-     * @return self
-     */
-    public function setEmail($email)
+    public function setEmail(string $email): void
     {
         $this->email = $email;
-
-        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getTelFixe()
+    public function getTelFixe(): int
     {
         return $this->telFixe;
     }
 
-    /**
-     * @param mixed $telFixe
-     *
-     * @return self
-     */
-    public function setTelFixe($telFixe)
+    public function setTelFixe(int $telFixe): void
     {
         $this->telFixe = $telFixe;
-
-        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getIndTelMobile()
+    public function getIndTelMobile(): string
     {
         return $this->indTelMobile;
     }
 
-    /**
-     * @param mixed $indTelMobile
-     *
-     * @return self
-     */
-    public function setIndTelMobile($indTelMobile)
+    public function setIndTelMobile(string $indTelMobile): void
     {
         $this->indTelMobile = $indTelMobile;
-
-        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getTelMobile()
+    public function getTelMobile(): int
     {
         return $this->telMobile;
     }
 
-    /**
-     * @param mixed $telMobile
-     *
-     * @return self
-     */
-    public function setTelMobile($telMobile)
+    public function setTelMobile(int $telMobile): void
     {
         $this->telMobile = $telMobile;
-
-        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCodePorte()
+    public function getCodePorte(): int
     {
         return $this->codePorte;
     }
 
-    /**
-     * @param mixed $codePorte
-     *
-     * @return self
-     */
-    public function setCodePorte($codePorte)
+    public function setCodePorte(int $codePorte): void
     {
         $this->codePorte = $codePorte;
-
-        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCodeTiers()
+    public function getCodeTiers(): int
     {
         return $this->codeTiers;
     }
 
-    /**
-     * @param mixed $codeTiers
-     *
-     * @return self
-     */
-    public function setCodeTiers($codeTiers)
+    public function setCodeTiers(int $codeTiers): void
     {
         $this->codeTiers = $codeTiers;
-
-        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getNoEntrepositaireAgree()
+    public function getNoEntrepositaireAgree(): string
     {
         return $this->noEntrepositaireAgree;
     }
 
-    /**
-     * @param mixed $noEntrepositaireAgree
-     *
-     * @return self
-     */
-    public function setNoEntrepositaireAgree($noEntrepositaireAgree)
+    public function setNoEntrepositaireAgree(string $noEntrepositaireAgree): void
     {
         $this->noEntrepositaireAgree = $noEntrepositaireAgree;
-
-        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getPeriodePreferenceEnlevement()
+    public function getPeriodePreferenceEnlevement(): string
     {
         return $this->periodePreferenceEnlevement;
     }
 
-    /**
-     * @param mixed $periodePreferenceEnlevement
-     *
-     * @return self
-     */
-    public function setPeriodePreferenceEnlevement($periodePreferenceEnlevement)
+    public function setPeriodePreferenceEnlevement(string $periodePreferenceEnlevement): void
     {
         $this->periodePreferenceEnlevement = $periodePreferenceEnlevement;
-
-        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getInstructionEnlevement()
+    public function getInstructionEnlevement(): string
     {
         return $this->instructionEnlevement;
     }
 
-    /**
-     * @param mixed $instructionEnlevement
-     *
-     * @return self
-     */
-    public function setInstructionEnlevement($instructionEnlevement)
+    public function setInstructionEnlevement(string $instructionEnlevement): void
     {
         $this->instructionEnlevement = $instructionEnlevement;
-
-        return $this;
     }
 }
