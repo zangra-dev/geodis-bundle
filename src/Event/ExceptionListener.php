@@ -62,7 +62,8 @@ class ExceptionListener
 
             $this->em->persist($log);
             $this->em->flush();
-        } catch (\Throwable) {
+        } catch (\Throwable $e) {
+            $this->log($e);
         }
     }
 }
