@@ -4,13 +4,11 @@ declare(strict_types=1);
 namespace GeodisBundle\Service\DAO;
 
 use Doctrine\ORM\EntityManagerInterface;
-use GeodisBundle\DAO\GuzzleHttp;
 use GeodisBundle\Service\DAO\Exception\ApiException;
 use GuzzleHttp\Client;
-use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use function GuzzleHttp\Psr7;
+use GuzzleHttp\Psr7\rewind_body($response);
 
 class Connection
 {

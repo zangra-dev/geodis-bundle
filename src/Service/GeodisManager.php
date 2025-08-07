@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace GeodisBundle\Service;
 
 use Doctrine\ORM\EntityManagerInterface;
-use GeodisBundle\Manager\Exception;
+use PHPUnit\Util\Exception;
 use GeodisBundle\Service\DAO\Connection;
 use GeodisBundle\Service\DAO\Exception\ApiException;
 

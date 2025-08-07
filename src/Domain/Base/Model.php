@@ -9,7 +9,7 @@ namespace GeodisBundle\Domain\Base;
  */
 abstract class Model
 {
-    public function toJson($skipNullValues = null)
+    public function toJson($skipNullValues = null): bool|string
     {
         $json = array();
         foreach ($this as $key => $value) {

@@ -11,8 +11,8 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
  */
 class ApiException extends HttpException implements ApiExceptionInterface
 {
-    public function __construct(string $message, int $code, Exception $previous = null)
+    public function __construct(string $message, int $statusCode, Exception $previous = null)
     {
-        parent::__construct($code, $message, $previous);
+        parent::__construct($statusCode, $message, $previous);
     }
 }
