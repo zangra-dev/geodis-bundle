@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace GeodisBundle\Resources\config\doctrine;
+namespace GeodisBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 

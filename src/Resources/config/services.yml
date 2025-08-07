@@ -9,8 +9,3 @@ services:
     GeodisBundle\:
         resource: '../../*'
         exclude: '../../{Entity,Tests}'
-
-    GeodisBundle\Repository\GeodisLoggerRepository:
-        factory: ['@doctrine', getRepository]
-        arguments: [GeodisBundle\Entity\GeodisLogger]
-
