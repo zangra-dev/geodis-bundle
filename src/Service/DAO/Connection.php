@@ -8,7 +8,7 @@ use GeodisBundle\Service\DAO\Exception\ApiException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use GuzzleHttp\Psr7\rewind_body($response);
+use GuzzleHttp\Psr7\Message::rewindBody($response);
 
 class Connection
 {
