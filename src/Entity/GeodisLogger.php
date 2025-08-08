@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: \GeodisBundle\Repository\GeodisLoggerRepository::class)]
 #[ORM\Table(name: 'export_geodis_log')]
-final class GeodisLogger
+class GeodisLogger
 {
     use TimestampableTrait;
 
