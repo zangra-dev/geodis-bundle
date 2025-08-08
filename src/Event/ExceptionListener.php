@@ -11,11 +11,13 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 use Symfony\Component\HttpKernel\KernelEvents;
+use Psr\Log\LoggerInterface;
 
 class ExceptionListener
 {
     public function __construct(
-        private readonly EntityManagerInterface $em
+        private readonly EntityManagerInterface $em,
+        private readonly LoggerInterface $logger
     ) {}
 
     #[AsEventListener(event: KernelEvents::EXCEPTION)]
@@ -63,7 +65,9 @@ class ExceptionListener
             $this->em->persist($log);
             $this->em->flush();
         } catch (\Throwable $e) {
-            $this->log($e);
+            $this->logger->error('Erreur lors de la persistance du log Geodis : ' . $e->getMessage(), [
+                'exception' => $e
+            ]);
         }
     }
 }
