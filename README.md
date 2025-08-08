@@ -3,34 +3,49 @@
 [![Latest Stable Version](http://poser.pugx.org/zangra/geodis-bundle/v)](https://packagist.org/packages/zangra/geodis-bundle)
 [![Build Status](https://scrutinizer-ci.com/g/zangra-dev/geodis-bundle/badges/build.png?b=master)](https://scrutinizer-ci.com/g/zangra-dev/geodis-bundle/build-status/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/zangra-dev/geodis-bundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/zangra-dev/geodis-bundle/?branch=master)
-[![License](http://poser.pugx.org/zangra/geodis-bundle/license)](https://packagist.org/packages/zangra/geodis-bundle) [![PHP Version Require](http://poser.pugx.org/zangra/geodis-bundle/require/php)](https://packagist.org/packages/zangra/geodis-bundle)
+[![PHP Version Require](http://poser.pugx.org/zangra/geodis-bundle/require/php)](https://packagist.org/packages/zangra/geodis-bundle)
+[![License](http://poser.pugx.org/zangra/geodis-bundle/license)](https://packagist.org/packages/zangra/geodis-bundle)
+
+---
 
 ## About
-A Symfony bundle for Geodis Labels.
 
-## Description
+**GeodisBundle** is a Symfony bundle for generating and managing Geodis shipping labels.  
+It provides a simple and efficient integration of the Geodis API into Symfony projects.
 
-- GeodisBundle provides an easy way to manage and generate Geodis labels within a Symfony application.
+---
+
+### What's new in 3.0
+
+- ✅ Full compatibility with modern Symfony versions
+- ✅ Improved service configuration with `autowire` & `autoconfigure` support
+- ✅ Cleaner error handling with a new `ExceptionListener`
+- ✅ Lazy-loading for the `GeodisJsonApi` service
+- ✅ Refactored code for better maintainability
+
+---
 
 ## Installation
 
-To install GeodisBundle, use Composer:
+Install the bundle via Composer:
 
 ```bash
-composer require zangra/geodis-bundle
-
+composer require zangra/geodis-bundle:^3.0
 ```
+
+---
 
 ## Requirements
 
-- PHP ^7.0
-- Symfony Framework Bundle >=2.1
+- PHP ^8.1
+- Symfony Framework Bundle >= 6.4
 - Doctrine Bundle
-- Guzzle HTTP Client ^6.2
+- Guzzle HTTP Client ^6.5.8 || ^7.8
+
+---
 
 ## Configuration
-- Add the bundle to your config/bundles.php file:
-
+Enable the bundle in config/bundles.php:
 ```php
 return [
     // Other bundles...
@@ -38,10 +53,28 @@ return [
 ];
 ```
 
+---
+
 ## Usage
-- To use GeodisBundle, you need to set up the necessary configuration and services. For example:
+Once configured, you can use the provided services to create and manage Geodis shipments.
+Example service configuration:
+
 ```yaml
-    # config/packages/geodis.yaml
-    geodis:
-    api_key: '%env(GEODIS_API_KEY)%'
+services:
+  GeodisBundle\Manager\GeodisJsonApi:
+    lazy: true
+```
+Then inject GeodisJsonApi into your services or controllers:
+```php
+use GeodisBundle\Manager\GeodisJsonApi;
+
+class ShippingController
+{
+    public function __construct(private GeodisJsonApi $geodisApi) {}
+
+    public function createLabel(): void
+    {
+        // Your logic to create a label
+    }
+}
 ```
