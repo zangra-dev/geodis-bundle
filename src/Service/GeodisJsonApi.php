@@ -1,15 +1,11 @@
-<?php
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace GeodisBundle\Service;
 
 use Doctrine\ORM\EntityManagerInterface;
+use GeodisBundle\Domain\Base\Model;
 use GeodisBundle\Service\DAO\Connection;
 
-/**
- * Author: Maxime Lambot <maxime@lambot.com>.
- * Author: Nils méchin <nils@zangra.com>
- */
 class GeodisJsonApi extends GeodisManager
 {
     public function __construct(EntityManagerInterface $em)
@@ -17,23 +13,21 @@ class GeodisJsonApi extends GeodisManager
         parent::__construct($em);
     }
 
-    public function setConfig($config)
+    public function setConfig($config): void
     {
         parent::setConfig($config);
     }
 
-    private function request($method, $service, $body = null)
+    private function request(string $method, string $service, array|string|null $body = null): mixed
     {
         Connection::setContentType('json');
 
         return Connection::Request($method, $service, $body);
     }
 
-    public function persist($entity, $service)
+    public function persist(Model $entity, string $service): mixed
     {
         $json = $entity->toJson();
-        $result = $this->request('POST', $service, $json);
-
-        return $result;
+        return $this->request('POST', $service, $json);
     }
 }
