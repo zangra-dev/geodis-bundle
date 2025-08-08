@@ -9,3 +9,9 @@ services:
     GeodisBundle\:
         resource: '../../*'
         exclude: '../../{Entity,Tests}'
+
+    GeodisBundle\Manager\GeodisJsonApi:
+        autowire: true
+        autoconfigure: true
+        public: false
+        lazy: true
