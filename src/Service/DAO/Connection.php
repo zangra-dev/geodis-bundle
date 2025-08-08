@@ -8,7 +8,6 @@ use GeodisBundle\Service\DAO\Exception\ApiException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use GuzzleHttp\Psr7\Message::rewindBody($response);
 
 class Connection
 {
@@ -144,7 +143,7 @@ class Connection
     private static function parseJSON(Response $response, $returnSingleIfPossible = true)
     {
         try {
-            Psr7\rewind_body($response);
+            \GuzzleHttp\Psr7\Message::rewindBody($response);
             $json = json_decode($response->getBody()->getContents(), true);
 
             if (is_array($json)) {
