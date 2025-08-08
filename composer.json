@@ -1,38 +1,59 @@
 {
-    "name": "zangra/geodis-bundle",
-    "version": "2.3",
-    "description": "A Bundle for Geodis Labels",
-    "type": "symfony-bundle",
-    "authors": [
-        {
-            "name": "Maxime Lambot",
-            "email": "maxime@zangra.com"
-        }
-    ],
-    "keywords": [
-        "Symfony",
-        "api",
-        "geodis",
-        "labels",
-        "php"
-    ],
-    "license": "MIT",
+    "name":        "zangra/geodis-bundle",
+    "description": "Geodis REST/JSON integration for Sylius / Symfony projects",
+    "type":        "symfony-bundle",
+    "license":     "MIT",
+    "authors" : [{
+        "name" : "Maxime Lambot",
+        "email" : "maxime@zangra.com"
+    }],
+
     "require": {
-        "php": "^7.0",
-        "symfony/framework-bundle": ">=2.1",
-        "doctrine/doctrine-bundle": "*",
-        "guzzlehttp/guzzle": "^6.2"
+        "php": "^8.1 || ^8.4",
+        "symfony/framework-bundle": "^6.4",
+        "symfony/http-client":       "^6.4",
+        "symfony/http-kernel":       "^6.4",
+        "symfony/dependency-injection": "^6.4",
+        "symfony/config":            "^6.4",
+        "doctrine/orm":              "*",
+        "doctrine/doctrine-bundle":  "*",
+        "doctrine/migrations":       "^3.4",
+        "guzzlehttp/guzzle":         "^6.5.8 || ^7.8",
+        "guzzlehttp/psr7":           "^1.8 || ^2.7",
+        "gedmo/doctrine-extensions": "^3.13",
+        "symfony/event-dispatcher":  "^6.4"
     },
 
+    "require-dev": {
+        "symfony/phpunit-bridge": "^6.4",
+        "phpstan/phpstan":        "^1.11",
+        "phpunit/phpunit":        "^11.0"
+    },
+
+
     "autoload": {
-        "psr-0": {
-            "GeodisBundle": ""
+        "psr-4": {
+            "GeodisBundle\\": "src/"
         }
     },
-    "target-dir": "GeodisBundle",
+
+    "autoload-dev": {
+        "psr-4": {
+            "GeodisBundle\\Tests\\": "tests/"
+        }
+    },
+
     "extra": {
         "branch-alias": {
-            "master": "2.0-dev"
+            "dev-main": "3.0-dev"
+        },
+        "symfony": {
+            "bundle": "GeodisBundle\\\\GeodisBundle"
         }
+    },
+
+
+    "scripts": {
+        "test": "phpunit"
     }
 }

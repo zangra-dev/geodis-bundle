@@ -1,6 +1,7 @@
 <?php
+declare(strict_types=1);
 
-namespace GeodisBundle\Model\Base;
+namespace GeodisBundle\Domain\Base;
 
 /**
  * Author: Nils méchin <nils@zangra.com>
@@ -8,7 +9,7 @@ namespace GeodisBundle\Model\Base;
  */
 abstract class Model
 {
-    public function toJson($skipNullValues = null)
+    public function toJson($skipNullValues = null): bool|string
     {
         $json = array();
         foreach ($this as $key => $value) {

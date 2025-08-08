@@ -1,0 +1,12 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    GeodisBundle\:
+        resource: '../../*'
+        exclude: '../../{Entity,Tests}'
+
+    GeodisBundle\Service\GeodisJsonApi:
+        lazy: true
