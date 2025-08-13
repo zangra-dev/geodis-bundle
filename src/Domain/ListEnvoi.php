@@ -81,9 +81,9 @@ use GeodisBundle\Domain\Base\Model;
 
 class ListEnvoi extends Model
 {
-    public int $codeClient;
+    public string $codeClient;
     public string $codeProduit;
-    public int $codeSa;
+    public string $codeSa;
     public string $dateDepartEnlevement;
     public array $destinataire;
     public array $expediteur;
@@ -121,15 +121,15 @@ class ListEnvoi extends Model
     public ?bool $sadLivEtage = null;
     public ?bool $sadMiseLieuUtil = null;
     public ?bool $sadSwap = null;
-    public ?int $smsNotificationDestinataire = null;
+    public ?string $smsNotificationDestinataire = null;
     public ?int $volumeTotal = null;
 
-    public function getCodeClient(): int
+    public function getCodeClient(): string
     {
         return $this->codeClient;
     }
 
-    public function setCodeClient(int $codeClient): void
+    public function setCodeClient(string $codeClient): void
     {
         $this->codeClient = $codeClient;
     }
@@ -144,12 +144,12 @@ class ListEnvoi extends Model
         $this->codeProduit = $codeProduit;
     }
 
-    public function getCodeSa(): int
+    public function getCodeSa(): string
     {
         return $this->codeSa;
     }
 
-    public function setCodeSa(int $codeSa): void
+    public function setCodeSa(string $codeSa): void
     {
         $this->codeSa = $codeSa;
     }
@@ -524,12 +524,12 @@ class ListEnvoi extends Model
         $this->sadSwap = $sadSwap;
     }
 
-    public function getSmsNotificationDestinataire(): ?int
+    public function getSmsNotificationDestinataire(): ?string
     {
         return $this->smsNotificationDestinataire;
     }
 
-    public function setSmsNotificationDestinataire(?int $smsNotificationDestinataire): void
+    public function setSmsNotificationDestinataire(?string $smsNotificationDestinataire): void
     {
         $this->smsNotificationDestinataire = $smsNotificationDestinataire;
     }

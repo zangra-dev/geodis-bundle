@@ -25,22 +25,22 @@ use GeodisBundle\Domain\Base\Model;
 
 class Expediteur extends Model
 {
-	public string $nom;
-	public string $adresse1;
-	public string $adresse2;
-	public int    $codePostal;
-	public string $ville;
-	public string $codePays;
-	public ?string $nomContact = null;
-	public ?string $email = null;
-	public ?int    $telFixe = null;
-	public ?string $indTelMobile = null;
+    public string $nom;
+    public string $adresse1;
+    public string $adresse2;
+    public string $codePostal;
+    public string $ville;
+    public string $codePays;
+    public ?string $nomContact = null;
+    public ?string $email = null;
+    public ?int    $telFixe = null;
+    public ?string $indTelMobile = null;
     public ?int    $telMobile = null;
     public ?int    $codePorte = null;
     public ?int    $codeTiers = null;
-	public ?string $noEntrepositaireAgree = null;
-	public ?string $periodePreferenceEnlevement = null;
-	public ?string $instructionEnlevement = null;
+    public ?string $noEntrepositaireAgree = null;
+    public ?string $periodePreferenceEnlevement = null;
+    public ?string $instructionEnlevement = null;
 
     public function getNom(): string
     {
@@ -72,12 +72,12 @@ class Expediteur extends Model
         $this->adresse2 = $adresse2;
     }
 
-    public function getCodePostal(): int
+    public function getCodePostal(): string
     {
         return $this->codePostal;
     }
 
-    public function setCodePostal(int $codePostal): void
+    public function setCodePostal(string $codePostal): void
     {
         $this->codePostal = $codePostal;
     }
