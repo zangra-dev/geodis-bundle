@@ -59,14 +59,14 @@ abstract class Model
     private function encodeSubLines($entry)
     {
         $salesOrderLine = array();
-        foreach ($entry as $entryKey => $entry) {
+        foreach ($entry as $entryKey => $value) {
             if ('url' === $entryKey or 'primaryKey' === $entryKey) {
                 continue;
             }
-            if (null === $entry) {
+            if (null === $value) {
                 continue;
             }
-            $salesOrderLine[$entryKey] = $entry;
+            $salesOrderLine[$entryKey] = $value;
         }
         return $salesOrderLine;
     }
