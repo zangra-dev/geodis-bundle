@@ -34,9 +34,9 @@ class Destinataire extends Model
     public string $codePays;
     public ?string $nomContact = null;
     public ?string $email = null;
-    public ?int $telFixe = null;
-    public ?int $indTelMobile = null;
-    public ?int $telMobile = null;
+    public ?string $telFixe = null;
+    public ?string $indTelMobile = null;
+    public ?string $telMobile = null;
     public ?int $codePorte = null;
     public ?int $codeTiers = null;
     public ?int $noEntrepositaireAgree = null;
@@ -122,32 +122,32 @@ class Destinataire extends Model
         $this->email = $email;
     }
 
-    public function getTelFixe(): ?int
+    public function getTelFixe(): ?string
     {
         return $this->telFixe;
     }
 
-    public function setTelFixe(?int $telFixe): void
+    public function setTelFixe(?string $telFixe): void
     {
         $this->telFixe = $telFixe;
     }
 
-    public function getIndTelMobile(): ?int
+    public function getIndTelMobile(): ?string
     {
         return $this->indTelMobile;
     }
 
-    public function setIndTelMobile(?int $indTelMobile): void
+    public function setIndTelMobile(?string $indTelMobile): void
     {
         $this->indTelMobile = $indTelMobile;
     }
 
-    public function getTelMobile(): ?int
+    public function getTelMobile(): ?string
     {
         return $this->telMobile;
     }
 
-    public function setTelMobile(?int $telMobile): void
+    public function setTelMobile(?string $telMobile): void
     {
         $this->telMobile = $telMobile;
     }

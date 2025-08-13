@@ -27,7 +27,7 @@ class ListUmg extends Model
     public ?int $hauteur = null;
     public ?bool $palette = null;
     public ?bool $paletteConsignee = null;
-    public ?int $poids = null;
+    public ?float $poids = null;
     public ?string $referenceColis = null;
     public ?int $volume = null;
 
@@ -91,12 +91,12 @@ class ListUmg extends Model
         $this->paletteConsignee = $paletteConsignee;
     }
 
-    public function getPoids(): ?int
+    public function getPoids(): ?float
     {
         return $this->poids;
     }
 
-    public function setPoids(?int $poids): void
+    public function setPoids(?float $poids): void
     {
         $this->poids = $poids;
     }
