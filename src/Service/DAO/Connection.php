@@ -39,7 +39,7 @@ class Connection
      *
      * @return GuzzleHttp\Psr7\Request;
      */
-    private static function createRequest($method = 'GET', $endpoint, $body, $serviceCalled)
+    private static function createRequest($endpoint, $body, $serviceCalled, $method = 'GET')
     {
         /*
             X-GEODIS-Service:
@@ -102,7 +102,7 @@ class Connection
 
         try {
             $client = new Client();
-            $request = self::createRequest($method, $url, $body, $service);
+            $request = self::createRequest($url, $body, $service, $method);
             $response = $client->send($request);
         } catch (\Exception $ex) {
             $error = $ex->getResponse()->getBody()->getContents();
@@ -115,7 +115,7 @@ class Connection
 
             return $parsedResponse;
         } catch (\Exception $ex) {
-            throw new ApiException($e->getMessage(), $e->getStatusCode());
+            throw new ApiException($ex->getMessage(), $ex->getCode());
         }
     }
 
