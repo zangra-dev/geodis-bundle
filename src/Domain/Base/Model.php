@@ -13,7 +13,7 @@ abstract class Model
     {
         $json = array();
         foreach ($this as $key => $value) {
-            if ('url' === $key or 'primaryKey' === $key) {
+            if ('url' === $key || 'primaryKey' === $key) {
                 continue;
             }
 
@@ -35,53 +35,39 @@ abstract class Model
 
     private function encodeLines($value)
     {
-        $salesOrderLines = array();
-        foreach ($value as $line) {
-            $salesOrderLine = array();
-            foreach ($line as $entryKey => $entry) {
-                if ('url' === $entryKey or 'primaryKey' === $entryKey) {
-                    continue;
-                }
-                if (null === $entry) {
-                    continue;
-                }
-                
-                /*
-                if ('destinataire' == $entryKey) {
-                    $entry = $this->encodeSubLines($value);
-                }
-                if ('expediteur' == $entryKey) {
-                    $entry = $this->encodeSubLines($value);
-                }
-                if ('listUmgs' == $entryKey) {
-                    $entry = $this->encodeSubLines($value);
-                }
-                */
-                $salesOrderLine[$entryKey] = $entry;
+        $salesOrderLine = [];
+
+        foreach ($value as $entryKey => $entry) {
+            if ('url' === $entryKey || 'primaryKey' === $entryKey) {
+                continue;
             }
-            array_push($salesOrderLines, $salesOrderLine);
+
+            if (null === $entry) {
+                continue;
+            }
+
+            if (in_array($entryKey, ['destinataire', 'expediteur', 'listUmgs'], true)) {
+                $entry = $this->encodeSubLines($entry);
+            }
+
+            $salesOrderLine[$entryKey] = $entry;
         }
 
-        return $salesOrderLines;
+        return [$salesOrderLine];
     }
 
-    private function encodeSubLines($value)
+    private function encodeSubLines($entry)
     {
-        $salesOrderLines = array();
-        foreach ($value as $line) {
-            $salesOrderLine = array();
-            foreach ($line as $entryKey => $entry) {
-                if ('url' === $entryKey or 'primaryKey' === $entryKey) {
-                    continue;
-                }
-                if (null === $entry) {
-                    continue;
-                }
-                $salesOrderLine[$entryKey] = $entry;
+        $salesOrderLine = array();
+        foreach ($entry as $entryKey => $entry) {
+            if ('url' === $entryKey or 'primaryKey' === $entryKey) {
+                continue;
             }
-            array_push($salesOrderLines, $salesOrderLine);
+            if (null === $entry) {
+                continue;
+            }
+            $salesOrderLine[$entryKey] = $entry;
         }
-
-        return $salesOrderLines;
+        return $salesOrderLine;
     }
 }
