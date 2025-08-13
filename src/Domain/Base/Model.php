@@ -9,7 +9,7 @@ namespace GeodisBundle\Domain\Base;
  */
 abstract class Model
 {
-    public function toJson($skipNullValues = null): bool|string
+    public function toJson(): bool|string
     {
         $json = array();
         foreach ($this as $key => $value) {
@@ -33,7 +33,7 @@ abstract class Model
         return json_encode($json);
     }
 
-    private function encodeLines($value)
+    private function encodeLines($value): array
     {
         $salesOrderLine = [];
 
@@ -46,8 +46,13 @@ abstract class Model
                 continue;
             }
 
-            if (in_array($entryKey, ['destinataire', 'expediteur', 'listUmgs'], true)) {
+            if (in_array($entryKey, ['destinataire', 'expediteur'], true)) {
                 $entry = $this->encodeSubLines($entry);
+            }
+
+            // Liste d’objets (important pour Geodis !)
+            if ($entryKey === 'listUmgs') {
+                $entry = $this->encodeMultipleSubLines($entry);
             }
 
             $salesOrderLine[$entryKey] = $entry;
@@ -56,7 +61,7 @@ abstract class Model
         return [$salesOrderLine];
     }
 
-    private function encodeSubLines($entry)
+    private function encodeSubLines($entry): array
     {
         $salesOrderLine = array();
         foreach ($entry as $entryKey => $value) {
@@ -69,5 +74,33 @@ abstract class Model
             $salesOrderLine[$entryKey] = $value;
         }
         return $salesOrderLine;
+    }
+
+    private function encodeMultipleSubLines($entries): array
+    {
+        $lines = [];
+
+        // Si c’est un seul élément (non tableau), on le met dans un tableau
+        if (!is_array($entries) || array_keys($entries) === range(0, count($entries) - 1)) {
+            // c’est déjà un tableau d’objets, on ne change rien
+        } else {
+            // c’est un seul objet, on le met dans un tableau
+            $entries = [$entries];
+        }
+
+        foreach ($entries as $entry) {
+            $cleaned = [];
+
+            foreach ($entry as $key => $value) {
+                if ($value === null || $key === 'url' || $key === 'primaryKey') {
+                    continue;
+                }
+                $cleaned[$key] = $value;
+            }
+
+            $lines[] = $cleaned;
+        }
+
+        return $lines;
     }
 }
