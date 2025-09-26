@@ -37,7 +37,7 @@ class Destinataire extends Model
     public ?string $telFixe = null;
     public ?string $indTelMobile = null;
     public ?string $telMobile = null;
-    public ?int $codePorte = null;
+    public ?string $codePorte = null;
     public ?int $codeTiers = null;
     public ?int $noEntrepositaireAgree = null;
     public ?bool $particulier = null;
@@ -152,12 +152,12 @@ class Destinataire extends Model
         $this->telMobile = $telMobile;
     }
 
-    public function getCodePorte(): ?int
+    public function getCodePorte(): ?string
     {
         return $this->codePorte;
     }
 
-    public function setCodePorte(?int $codePorte): void
+    public function setCodePorte(?string $codePorte): void
     {
         $this->codePorte = $codePorte;
     }
